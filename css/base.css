@@ -1,0 +1,303 @@
+/* =========================================================
+   Dyo — BASE
+   ---------------------------------------------------------
+   Regras que valem pro site inteiro: reset, tipografia,
+   botões, ícones, destaques de texto, cabeçalho das seções
+   e animações de entrada.
+   As cores vêm de css/variables.css.
+   ========================================================= */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-height) + 12px);
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body.nav-open { overflow: hidden; }
+
+img, video, iframe { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+ul { list-style: none; margin: 0; padding: 0; }
+p { margin: 0; }
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+::selection { background: var(--color-yellow); color: var(--color-ink); }
+
+:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.theme-light :focus-visible { outline-color: var(--color-yellow); }
+
+/* Link "pular para o conteúdo" (acessibilidade) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  transition: top var(--transition);
+}
+.skip-link:focus { top: 1rem; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Seções (fundo e texto vêm do tema) ---------- */
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.section-header {
+  max-width: 720px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tag);
+}
+.section-eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 3px;
+  background: currentColor;
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 4.4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.section-lead {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.75;
+  max-width: 56ch;
+  margin-inline: auto;
+  color: var(--text-muted);
+}
+
+/* ---------- Destaques de texto ----------
+   .accent → usa o amarelo da marca com moderação
+   .marker → faixa amarela atrás de uma palavra importante     */
+.accent { color: var(--emphasis); }
+
+.marker {
+  padding: 0 0.18em;
+  color: var(--color-ink);
+  background: linear-gradient(transparent 12%, var(--color-yellow) 12%, var(--color-yellow) 88%, transparent 88%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  text-align: center;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition), background var(--transition),
+    color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+
+/* Principal: amarelo com texto preto */
+.btn-primary {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  box-shadow: 0 10px 26px rgba(255, 201, 60, 0.22);
+}
+.btn-primary:hover { background: var(--color-yellow-strong); }
+
+/* Ação de contato */
+.btn-red {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  box-shadow: none;
+}
+.btn-red:hover { background: var(--color-yellow-strong); }
+
+/* Contorno: ação secundária (funciona no claro e no escuro) */
+.btn-outline {
+  border-color: currentColor;
+  color: var(--text, var(--color-text-light));
+}
+.btn-outline:hover {
+  background: var(--text, var(--color-text-light));
+  color: var(--bg, var(--color-ink));
+  border-color: var(--text, var(--color-text-light));
+}
+
+.btn-lg { padding: 1.05rem 2rem; font-size: 1rem; }
+.btn-block { width: 100%; }
+
+/* ---------- Ícones ----------
+   Os desenhos ficam em img/icons/*.svg. Pra usar:
+   <span class="icon icon-whatsapp" aria-hidden="true"></span>
+   O ícone pega a cor do texto em volta.                      */
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1.15em;
+  height: 1.15em;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.icon-whatsapp    { --icon: url("../img/icons/whatsapp.svg"); }
+.icon-instagram   { --icon: url("../img/icons/instagram.svg"); }
+.icon-discord     { --icon: url("../img/icons/discord.svg"); }
+.icon-x           { --icon: url("../img/icons/x.svg"); }
+.icon-tiktok      { --icon: url("../img/icons/tiktok.svg"); }
+.icon-arrow-right { --icon: url("../img/icons/arrow-right.svg"); }
+.icon-arrow-left  { --icon: url("../img/icons/arrow-left.svg"); }
+.icon-check       { --icon: url("../img/icons/check.svg"); }
+.icon-play        { --icon: url("../img/icons/play.svg"); }
+
+/* ---------- Etiqueta pequena (categorias, "Destaque") ---------- */
+.tag {
+  display: inline-block;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--color-text-light);
+  background: var(--color-ink-raised);
+  border-radius: 4px;
+}
+.tag-yellow { background: var(--color-yellow); color: var(--color-ink); }
+
+/* ---------- Animação de entrada (reveal) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Sem JavaScript, mostra tudo */
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Contraste editorial: reservado às citações e ênfases pontuais. */
+.hero-subtitle .marker { font-style: italic; font-weight: 700; }
+.section-title .type-editorial {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: inherit;
+  text-transform: none;
+}
+.about-text .section-lead, .contact-text .section-lead { margin-inline: 0; }
+
+/* Assimetria apenas nos cabeçalhos: os grids de conteúdo são preservados. */
+@media (min-width: 900px) {
+  .portfolio > .container > .section-header {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+  .portfolio .section-lead { margin-left: 0; }
+  .testimonials > .container > .section-header {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+  }
+  .testimonials .section-lead { margin-right: 0; }
+}
+
+/* Evita que textos e controles alarguem os grids em telas estreitas. */
+.container > *, .hero-content, .about-text, .contact-text { min-width: 0; }
+.btn-outline:focus-visible { outline-offset: 5px; }
+.section-lead, .hero-description, .about-text > p { text-wrap: pretty; }
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .project-card:hover, .contact-link:hover { transform: none; }
+}
+
+/* Informações de projeto e experiência: só aparecem quando preenchidas. */
+.detail-list {
+  width: 100%;
+  margin: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+}
+.detail-row { padding-block: 0.85rem; border-bottom: 1px solid var(--line); }
+.detail-list dt { font-weight: 700; font-size: 0.82rem; color: var(--text); }
+.detail-list dd {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}

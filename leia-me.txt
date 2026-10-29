@@ -1,0 +1,414 @@
+========================================================
+  GUIA DO SITE — DYO
+  Feito por Dyo
+========================================================
+
+Oi, Dyo! Esse arquivo explica onde fica cada coisa do
+site, pra você conseguir mexer sem quebrar nada.
+
+Se tiver dúvida, me chama no Discord. Não tenta adivinhar.
+
+
+--------------------------------------------------------
+  1) O QUE TEM DENTRO DA PASTA
+--------------------------------------------------------
+
+projeto/
+│
+├── index.html              → A página do site (títulos e textos fixos)
+├── 404.html                → Página de "link não encontrado"
+├── LEIA-ME.txt             → Esse arquivo aqui
+│
+├── css/                    → APARÊNCIA
+│   ├── variables.css       → ★ CORES, fontes e tamanhos (mexa aqui!)
+│   ├── base.css            → Botões, ícones, destaques de texto
+│   ├── layout.css          → Topo (menu) e rodapé
+│   ├── identity.css        → Cores e acabamento compartilhado
+│   └── sections/           → Um arquivo pra cada seção:
+│       ├── hero.css            Início
+│       ├── about.css           Quem sou eu
+│       ├── portfolio.css       Portfólio
+│       ├── testimonials.css    Depoimentos
+│       └── contact.css         Contato
+│
+├── js/
+│   ├── content.js          → ★ CONTEÚDO (vídeos, depoimentos, contatos)
+│   └── app.js              → Lógica do site (não precisa mexer)
+│
+└── img/                    → IMAGENS
+    ├── brand/dyo-studio-logo.svg Logo DYO (início e rodapé)
+    ├── brand/dyo-studio-icon.svg Ícone DYO (aba do navegador)
+    ├── brand/foto-dyo.webp   Sua foto pessoal (guardada)
+    ├── backgrounds/hero.webp   Imagem guardada (não usada no início)
+    ├── backgrounds/contact.webp Fundo da seção Contato
+    ├── sections/about.webp     Foto da seção "Quem sou eu"
+    ├── testimonials/           Fotos dos clientes
+    ├── social/og-image.jpg     Imagem que aparece ao compartilhar o link
+    └── icons/                  Ícones (contatos e programas na abertura)
+
+Não renomeie as pastas nem os arquivos. O site depende
+desses nomes exatos pra funcionar.
+
+
+--------------------------------------------------------
+  2) "QUERO MUDAR X" — ONDE EU MEXO?
+--------------------------------------------------------
+
+  Uma cor ................. css/variables.css
+  Um vídeo do portfólio .... js/content.js  (projects)
+  Um depoimento ............ js/content.js  (testimonials)
+  Um link de contato ....... js/content.js  (contactLinks)
+  Título ou texto fixo ..... index.html
+  Uma imagem ............... img/  (veja o item 5)
+  Visual de uma seção ...... css/sections/<nome da seção>.css
+  Identidade visual ......... css/identity.css
+
+Os ícones Adobe Premiere Pro e Adobe After Effects aparecem
+em cards abaixo dos botões da abertura. O título da área é
+"Programas que domino". Os arquivos SVG ficam em img/icons/.
+
+Pacotes mensais e serviços avulsos foram removidos do site
+e dos dados editáveis. Para oferecer um serviço, use os
+links de contato e converse diretamente com o cliente.
+
+
+--------------------------------------------------------
+  3) COMO ABRIR O SITE PRA TESTAR
+--------------------------------------------------------
+
+Modo 1 — Simples:
+  Dê dois cliques no "index.html". Ele abre no navegador.
+
+Modo 2 — Melhor (recomendado):
+  1. Abra o VS Code
+  2. Instale a extensão "Live Server"
+  3. Clique com o botão direito no "index.html"
+  4. Escolha "Open with Live Server"
+
+Obs: no site publicado as imagens passam pelo otimizador
+da Netlify (ficam mais leves). No seu computador o site
+usa os arquivos originais — é normal e funciona igual.
+
+
+--------------------------------------------------------
+  4) COMO EDITAR OS TEXTOS
+--------------------------------------------------------
+
+REGRA BÁSICA:
+  - Só mexa no texto que está ENTRE aspas ou entre tags
+  - Não apague chaves { }, colchetes [ ], vírgulas ou aspas
+  - Não apague nada que começa com < ou termina com >
+
+DESTACAR UMA PALAVRA (no index.html):
+
+  <span class="accent">palavra</span>
+     → fica AMARELA nas seções escuras
+
+  <span class="marker">palavra</span>
+     → fica com "marca-texto" amarelo atrás
+
+  Exemplo:
+    <h2 class="section-title">Planos <span class="accent">mensais</span></h2>
+
+  Use pouco: uma palavra por título já chama atenção.
+
+
+--------------------------------------------------------
+  5) COMO TROCAR AS IMAGENS
+--------------------------------------------------------
+
+O jeito mais fácil: substitua o arquivo MANTENDO O MESMO
+NOME e a mesma pasta. Não precisa mexer no código.
+
+  Sua foto       → img/brand/foto-dyo.webp
+                   (o rosto fica centralizado; 512x512 ou maior)
+  Imagem guardada → img/backgrounds/hero.webp
+                   (horizontal, uns 1600x900)
+  Fundo do contato → img/backgrounds/contact.webp
+                   (horizontal, uns 1600x900)
+  Quem sou eu    → img/sections/about.webp
+                   (em pé, proporção 4:5, uns 900x1125)
+
+Se a imagem nova for .jpg ou .png em vez de .webp, você
+precisa trocar o final do nome também no index.html
+(use Ctrl+F e procure pelo nome antigo).
+
+Foto de cliente nos depoimentos: coloque o arquivo em
+img/testimonials/ e escreva o caminho no campo "avatar"
+do depoimento, no js/content.js.
+
+
+--------------------------------------------------------
+  6) COMO MEXER NO PORTFÓLIO (VÍDEOS DO YOUTUBE)
+--------------------------------------------------------
+
+Os vídeos ficam no "js/content.js", dentro de:  projects: [
+
+Cada vídeo é um bloco assim:
+
+  {
+    title: "Nome do vídeo",
+    description: "Frase curta sobre o vídeo.",
+    youtubeId: "fK036KNKLbQ",
+    category: "Vídeo longo",
+    type: "video",
+    format: "horizontal",
+  },
+
+  title        → nome que aparece embaixo do vídeo
+  youtubeId    → o ID do vídeo no YouTube
+  category     → etiqueta tipo "Short", "Vídeo longo"
+  type         → em qual botão de filtro aparece:
+                   "video", "short" ou "motion"
+  format       → "horizontal" (normal) ou "vertical" (Short)
+  priority     → número maior aparece primeiro no carrossel
+                 (se não usar, os vídeos seguem a ordem da lista)
+
+Os projetos aparecem um por vez no carrossel. Use as setas,
+as teclas de seta ou deslize no celular para navegar. Ao apertar
+o botão de reprodução, o vídeo abre em uma janela maior. Feche
+no botão "X" ou clicando fora da janela. O vídeo só carrega nesse momento.
+
+COMO PEGAR O youtubeId:
+  https://www.youtube.com/watch?v=fK036KNKLbQ  →  fK036KNKLbQ
+  https://youtube.com/shorts/nA2FhmL1bcU       →  nA2FhmL1bcU
+
+Pra adicionar: copie um bloco { ... } inteiro, cole
+embaixo do último (antes do ]) e ajuste.
+Pra remover: apague o bloco { ... } inteiro.
+
+
+--------------------------------------------------------
+  7) COMO EDITAR OS DEPOIMENTOS
+--------------------------------------------------------
+
+Os depoimentos ficam no "js/content.js", dentro de
+testimonials: [.
+
+Depoimentos:
+  name, handle (@), quote (o texto), avatar (foto)
+  Se deixar avatar vazio (""), aparece um círculo amarelo
+  com as iniciais do nome.
+
+Para adicionar ou remover um depoimento, copie ou apague
+um bloco { ... } dentro da lista. Mantenha as vírgulas.
+
+
+--------------------------------------------------------
+  8) COMO TROCAR OS LINKS DE CONTATO
+--------------------------------------------------------
+
+No "js/content.js", dentro de  contactLinks: {
+
+  whatsapp: "https://wa.me/5521984315865",
+  instagram: "https://www.instagram.com/itsd.yoooo",
+  x: "https://x.com/itsdyooooo",
+  tiktok: "https://www.tiktok.com/@itsdyo",
+  primary: "https://wa.me/5521984315865",
+
+O WhatsApp precisa ter o "55" na frente do número.
+O "primary" é o botão amarelo "Entrar em contato".
+
+O Discord não tem link: só o nome de usuário (itsdyo)
+aparece no index.html, na seção CONTATO.
+
+O texto que aparece (ex: "(21) 98431-5865") fica no
+index.html, na seção CONTATO.
+
+
+--------------------------------------------------------
+  9) COMO MEXER NAS CORES
+--------------------------------------------------------
+
+As cores ficam em "css/variables.css", no começo do arquivo:
+
+  --color-yellow       → amarelo (ações e destaques)
+  --color-red          → vermelho sutil nos detalhes do portfólio
+  --color-red-strong   → vermelho mais escuro do portfólio
+  --color-ink          → preto principal
+  --color-paper        → preto alternativo
+
+Mudou ali, muda no site inteiro.
+Gerador de cores: https://coolors.co
+
+O acabamento das seções fica em "css/identity.css".
+As classes "theme-dark" e "theme-light" organizam os tons
+de preto usados no index.html.
+
+O logo DYO fica em "img/brand/dyo-studio-logo.svg" e aparece
+no destaque inicial e no rodapé. No cabeçalho, a marca é o
+texto "DYO", centralizado sem imagem. O ícone da aba usa
+"img/brand/dyo-studio-icon.svg". A foto pessoal em
+"img/brand/foto-dyo.webp" continua guardada,
+mas não aparece na apresentação inicial. As miniaturas dos
+vídeos e as fotos reais dos clientes não mudam.
+
+
+--------------------------------------------------------
+  10) COMO PUBLICAR
+--------------------------------------------------------
+
+O site já está ligado à Netlify. Pra subir manualmente:
+  1. Acesse https://app.netlify.com/drop
+  2. Arraste a PASTA INTEIRA do site
+  3. Pronto
+
+Se mudar o endereço do site (domínio), troque também o
+link da imagem de compartilhamento no index.html
+(procure por "og-image").
+
+
+--------------------------------------------------------
+  11) SE DER ALGUM PROBLEMA
+--------------------------------------------------------
+
+Vídeos com tela preta:
+  - Confere se o youtubeId tá certo
+  - Testa em aba anônima (bloqueador de anúncio atrapalha)
+  - Confere se o vídeo tá "público" no YouTube
+
+Portfólio, pacotes e depoimentos sumiram:
+  - Provavelmente faltou uma vírgula, aspas ou chave no
+    js/content.js. Desfaça com Ctrl+Z.
+
+Site ficou sem estilo (tudo branco):
+  - A pasta "css" sumiu ou algum arquivo foi renomeado
+
+Imagem não aparece:
+  - Confere o nome do arquivo (tudo minúsculo) e a pasta
+
+Apareceu Ã§, Ã£ no lugar de ç, ã:
+  - Salve o arquivo em UTF-8
+
+
+--------------------------------------------------------
+  12) REGRAS DE OURO
+--------------------------------------------------------
+
+  1. Faça uma cópia da pasta antes de mexer.
+  2. Edite UMA coisa por vez. Salvou, testou, funcionou?
+     Aí vai pra próxima.
+  3. NUNCA apague chaves { }, colchetes [ ] nem vírgulas.
+  4. Depois de editar, F5 no navegador (ou Ctrl+F5).
+  5. Em caso de dúvida, me chama.
+
+Discord: mrjgodzilla.dev
+========================================================
+
+
+--------------------------------------------------------
+  TIPOGRAFIA E COMPOSIÇÃO
+--------------------------------------------------------
+
+O site usa Montserrat nos títulos, DM Sans na leitura e
+Literata em textos editoriais e depoimentos. As fontes
+são carregadas no index.html e no 404.html; os nomes
+ficam em css/variables.css.
+
+A identidade visual usa preto com amarelo dourado nos
+destaques. O logo vetorial do início e rodapé fica em
+img/brand/dyo-studio-logo.svg; no cabeçalho, "DYO" fica à
+esquerda no computador e centralizado no celular. Na abertura,
+os ícones Premiere e After Effects aparecem em cards abaixo dos
+botões da abertura, na área "Programas que domino".
+O ícone da aba está em
+img/brand/dyo-studio-icon.svg. A foto pessoal, as imagens
+dos projetos e as fotos dos clientes continuam separadas.
+
+Os cabeçalhos alternam alinhamento no computador. No
+celular, as grades são reorganizadas automaticamente.
+O visual de cada seção continua no mesmo arquivo CSS.
+Os ícones dos programas na abertura ficam em
+img/icons/adobe-premiere-pro.svg e
+img/icons/adobe-after-effects.svg.
+O espaço "Em breve" foi mantido, sem adicionar imagem.
+
+
+--------------------------------------------------------
+  POSICIONAMENTO — CAMPOS PARA SUA PRÓXIMA REVISÃO
+--------------------------------------------------------
+
+Nenhum texto publicado foi reescrito nesta etapa. Os
+campos novos estão vazios e não aparecem até você
+preenchê-los. Não é preciso editar o js/app.js.
+
+1) APRESENTAÇÃO
+
+No js/content.js, profileDetails recebe informações
+profissionais. Escreva apenas o que consegue comprovar:
+experiência prática, processo, ferramentas e tipos de
+projeto. Cada item usa este formato:
+
+  { label: "", text: "" },
+
+Preencha as duas aspas vazias com seu rótulo e sua
+explicação. Cole o item dentro de profileDetails: [ ].
+Se um dos campos estiver vazio, o item não aparece.
+
+A experiência ganhou prioridade visual. Idade e canais
+continuam visíveis. No index.html, os parágrafos de
+#sobre ainda mencionam aprendizado, idade e canal próprio;
+revise esses textos pessoalmente na próxima etapa, sem
+omitir informações ou sugerir experiência que não tem.
+
+2) PROJETOS REAIS
+
+Cada projeto em projects mantém vídeo, categoria,
+descrição e destaque atuais e recebe campos opcionais:
+
+  authorship: "",     → identificação honesta da autoria
+  details: [],        → pares { label: "", text: "" }
+  techniques: [],     → lista de técnicas escritas por você
+  demonstrations: [],→ trechos reais que demonstram técnica
+  comparison: null,   → comparação autorizada (veja abaixo)
+  priority: 0,        → número maior aparece antes na mesma grade
+
+Em details, você pode escrever sua participação, o tipo
+de conteúdo e o processo. Em techniques, escreva somente
+recursos demonstráveis no projeto. Autoria não é deduzida
+pelo site: preencha authorship para identificar trabalho
+autoral ou sua participação com precisão.
+
+Não troque categorias ou prioridade com base em métricas
+inventadas. Assista aos trabalhos e escolha a ordem que
+apresenta melhor seus projetos.
+
+3) DEMONSTRAÇÕES TÉCNICAS
+
+Dentro de demonstrations: [ ], cada trecho usa:
+
+  { caption: "", youtubeId: "", format: "horizontal" },
+
+Escreva a legenda e o ID real do vídeo. Se for vertical,
+use format: "vertical". Sem legenda ou ID válido, o trecho
+não aparece. Nada é reproduzido automaticamente.
+
+Use esse componente para explicar uma decisão real de
+edição. Não há uma lista automática de especialidades.
+
+4) ANTES E DEPOIS
+
+Substitua comparison: null por este objeto somente
+quando você tiver os dois vídeos e puder publicá-los:
+
+  comparison: {
+    authorized: false,
+    before: { caption: "", youtubeId: "", format: "horizontal" },
+    after: { caption: "", youtubeId: "", format: "horizontal" },
+  },
+
+Preencha as legendas para distinguir original e resultado.
+Use os IDs reais do YouTube (11 caracteres). Só mude
+false para true depois de obter autorização para exibir
+os materiais. O par só aparece com autorização true,
+dois IDs válidos e as duas legendas preenchidas.
+Essa opção controla a exibição; não registra nem substitui
+a autorização do titular. Não publique material privado.
+No celular, os vídeos são empilhados com suas legendas.
+
+5) REVISÃO TEXTUAL A FAZER POR VOCÊ
+
+Além de #sobre, confira a frase de abertura e os dados
+rápidos em #top, as descrições em projects e as descrições
+dos depoimentos em testimonials no js/content.js. Revise
+os textos para manter as informações atualizadas.

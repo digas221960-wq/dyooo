@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+  Página de erro (aparece quando alguém abre um link que não existe).
+  Usa as cores, fontes e o acabamento visual do site.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="robots" content="noindex" />
+  <title>Página não encontrada — DYO Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/img/brand/dyo-studio-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/identity.css?v=13" />
+  <style>
+    .not-found {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding: 2rem var(--gutter);
+      text-align: center;
+    }
+    .not-found-code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 22vw, 11rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--color-yellow);
+    }
+    .not-found-code span { color: var(--color-yellow); }
+    .not-found h1 { margin-top: 1rem; font-size: clamp(1.6rem, 4vw, 2.2rem); text-transform: uppercase; }
+    .not-found p { margin: 0.75rem auto 2rem; max-width: 40ch; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <main class="not-found theme-dark">
+    <div>
+      <p class="not-found-code" aria-hidden="true">4<span>0</span>4</p>
+      <h1>Página não encontrada</h1>
+      <p>Esse corte não entrou na edição final. O link pode estar errado ou a página foi removida.</p>
+      <a class="btn btn-primary btn-lg" href="/">Voltar pro início</a>
+    </div>
+  </main>
+</body>
+</html>

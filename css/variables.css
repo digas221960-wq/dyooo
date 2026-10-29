@@ -1,0 +1,88 @@
+/* =========================================================
+   Dyo — VARIÁVEIS (cores, fontes e tamanhos)
+   ---------------------------------------------------------
+   Esse é o ÚNICO arquivo que você precisa abrir pra trocar
+   as cores do site. Todo o resto usa essas variáveis.
+
+   Paleta:
+     Preto e carvão   → fundos e superfícies
+     Amarelo         → ações e destaques importantes
+     Vermelho        → pequenos detalhes no portfólio
+   ========================================================= */
+
+:root {
+  /* ---------- Cores da marca ---------- */
+  --color-yellow: #dfb94f;          /* amarelo dourado da marca */
+  --color-yellow-strong: #edca6b;   /* realce moderado ao passar o mouse */
+  --color-red: #df4a50;             /* vermelho reservado aos detalhes do portfólio */
+  --color-red-strong: #c63d43;      /* vermelho mais escuro do portfólio */
+
+  /* ---------- Neutros escuros ---------- */
+  --color-ink: #050505;             /* preto */
+  --color-ink-soft: #0b0b0b;        /* cartões quase pretos */
+  --color-ink-raised: #141414;      /* superfície elevada */
+  --color-ink-line: #242424;        /* linhas discretas */
+
+  /* ---------- Neutros claros ---------- */
+  --color-paper: #070707;           /* fundo alternativo preto */
+  --color-paper-soft: #101010;      /* cartões no fundo alternativo */
+  --color-paper-line: #242424;      /* bordas no fundo alternativo */
+
+  /* ---------- Textos ---------- */
+  --color-text-light: #f4f3ef;      /* texto principal */
+  --color-text-light-muted: #b2b1ad;
+  --color-text-dark: #f1f0ec;       /* texto nas superfícies alternativas */
+  --color-text-dark-muted: #aaa9a5;
+
+  /* ---------- Fontes ---------- */
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-editorial: "Literata", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  /* ---------- Tamanhos e espaçamentos ---------- */
+  --container: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-space: clamp(4rem, 8vw, 6.5rem);
+  --header-height: 68px;
+
+  --radius-sm: 7px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  /* ---------- Sombras ---------- */
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  --shadow-hard: 0 16px 36px rgba(0, 0, 0, 0.24);
+
+  /* ---------- Animações ---------- */
+  --transition: 200ms ease;
+  --transition-slow: 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   TEMAS DAS SEÇÕES
+   ---------------------------------------------------------
+   Cada seção recebe a classe "theme-dark" ou "theme-light"
+   no index.html. Os componentes usam as variáveis abaixo,
+   então o mesmo card fica certo nos dois fundos.
+   ========================================================= */
+.theme-dark {
+  --bg: var(--color-ink);
+  --surface: var(--color-ink-soft);
+  --surface-hover: var(--color-ink-raised);
+  --line: var(--color-ink-line);
+  --text: var(--color-text-light);
+  --text-muted: var(--color-text-light-muted);
+  --emphasis: var(--color-yellow);   /* cor das palavras em destaque */
+  --tag: var(--color-text-light-muted);
+}
+
+.theme-light {
+  --bg: var(--color-paper);
+  --surface: var(--color-paper-soft);
+  --surface-hover: #171717;
+  --line: var(--color-paper-line);
+  --text: var(--color-text-dark);
+  --text-muted: var(--color-text-dark-muted);
+  --emphasis: var(--color-yellow);
+  --tag: var(--color-text-dark-muted);
+}

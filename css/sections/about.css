@@ -1,0 +1,94 @@
+/* =========================================================
+   SEÇÃO: QUEM SOU EU (fundo claro)
+   Espaço reservado: Em breve
+   ========================================================= */
+.about-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+/* Espaço reservado com a moldura e sombra da identidade visual */
+.about-photo {
+  position: relative;
+  margin: 0;
+}
+.about-placeholder {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 3px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  box-shadow: 12px 12px 0 var(--color-yellow), 12px 12px 0 3px var(--color-ink);
+  background: var(--color-ink);
+}
+.about-placeholder p {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+}
+
+.about-text .section-header { margin: 0 0 1.5rem; text-align: left; }
+
+.about-text > p { max-width: 60ch; color: var(--text-muted); }
+.about-text > p + p { margin-top: 1rem; }
+.about-text strong { color: var(--text); font-weight: 700; }
+
+/* Cards com informações rápidas */
+.about-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.15rem;
+  background: var(--surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius);
+}
+.meta-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tag);
+}
+.meta-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .about-inner { grid-template-columns: 1fr; }
+  .about-photo { max-width: 320px; width: calc(100% - 12px); margin-inline: auto; }
+}
+
+@media (max-width: 480px) {
+  .meta-item { padding: 0.85rem; }
+  .meta-value { font-size: 1rem; }
+}
+
+/* Experiência em primeiro plano; dados pessoais continuam legíveis. */
+.about-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.meta-item:first-child { grid-column: 1 / -1; }
+.meta-item:not(:first-child) { padding: 0.85rem; }
+.meta-item:not(:first-child) .meta-value { font-size: 0.95rem; font-weight: 500; }
+.profile-details[hidden] { display: none; }
+@media (max-width: 560px) {
+  .about-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .meta-item:last-child { grid-column: 1 / -1; }
+}

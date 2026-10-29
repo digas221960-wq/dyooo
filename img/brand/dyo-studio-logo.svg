@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 322 120" role="img" aria-labelledby="title">
+  <title id="title">DYO Studio | Video Editing</title>
+  <path fill="#f4f3ef" fill-rule="evenodd" d="M8 13h52c51 0 51 94 0 94H8V13Zm26 23v48h24c25 0 25-48 0-48H34Z"/>
+  <path fill="#f4f3ef" d="M101 13h34l27 34 27-34h34l-44 55v39h-34V68l-44-55Z"/>
+  <circle cx="267" cy="60" r="38" fill="none" stroke="#f4f3ef" stroke-width="16"/>
+  <path fill="#dfb94f" d="m258 46 25 14-25 14V46Z"/>
+</svg>

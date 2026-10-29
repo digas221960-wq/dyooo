@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+  <title id="title">DYO</title>
+  <circle cx="50" cy="50" r="36" fill="none" stroke="#f4f3ef" stroke-width="14"/>
+  <path fill="#dfb94f" d="m43 32 29 18-29 18V32Z"/>
+</svg>

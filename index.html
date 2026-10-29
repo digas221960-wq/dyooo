@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--
+  =========================================================
+  Site: DYO Studio — Edição de Vídeos
+  Feito por: DYO
+  Ano: 2026
+
+  Esse arquivo é a ESTRUTURA do site.
+  Aqui ficam os títulos, seções e textos fixos.
+
+  Onde fica cada coisa:
+    Cores e fontes ............ css/variables.css
+    Estilo de cada seção ...... css/sections/<nome>.css
+    Vídeos, pacotes, contatos . js/content.js
+    Imagens ................... img/ (veja o LEIA-ME.txt)
+
+  Destaques de texto:
+    <span class="accent">palavra</span>  → destaque amarelo da identidade DYO
+    <span class="marker">palavra</span>  → marca-texto amarelo
+
+  Regra básica: só mexa no texto ENTRE as tags.
+  Não apague nada que começa com < ou termina com >.
+  =========================================================
+-->
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+
+  <!-- Descrição que aparece no Google -->
+  <meta name="description" content="DYO Studio — edição profissional de vídeos para YouTube, TikTok, Shorts e Reels. Conheça meus trabalhos e entre em contato." />
+  <meta name="author" content="MRJGodzilla" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Quando o link é compartilhado no WhatsApp, Discord, etc -->
+  <meta property="og:title" content="DYO Studio — Edição de Vídeos" />
+  <meta property="og:description" content="Edição profissional pra YouTube, TikTok, Shorts e Reels. Conheça meus trabalhos e entre em contato." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://website-redesign-9513ab.netlify.app/img/social/og-image.jpg?v=2" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Card do Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DYO Studio — Edição de Vídeos" />
+  <meta name="twitter:description" content="Edição profissional pra YouTube, TikTok, Shorts e Reels." />
+  <meta name="twitter:image" content="https://website-redesign-9513ab.netlify.app/img/social/og-image.jpg?v=2" />
+
+  <title>DYO Studio — Edição de Vídeos</title>
+
+  <!-- Avisa o CSS que o JavaScript está ativo (pras animações de entrada) -->
+  <script>document.documentElement.classList.remove("no-js");</script>
+
+  <!-- Ícone da aba do navegador -->
+  <link rel="icon" type="image/svg+xml" href="img/brand/dyo-studio-icon.svg" />
+
+  <!-- Fontes: Montserrat (títulos), DM Sans (leitura) e Literata (editorial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;0,900;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet" />
+
+  <!-- Estilos: variáveis → base → layout → seções → identidade visual -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css?v=18" />
+  <link rel="stylesheet" href="css/sections/hero.css?v=19" />
+  <link rel="stylesheet" href="css/sections/about.css" />
+  <link rel="stylesheet" href="css/sections/portfolio.css?v=17" />
+  <link rel="stylesheet" href="css/sections/testimonials.css" />
+  <link rel="stylesheet" href="css/sections/contact.css" />
+  <link rel="stylesheet" href="css/identity.css?v=14" />
+</head>
+
+<body>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- =========================================================
+     CABEÇALHO (topo fixo do site)
+     Estilo: css/layout.css
+     ========================================================= -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+
+    <!-- Marca DYO -->
+    <a href="#top" class="brand" aria-label="DYO Studio — início">
+      <span class="brand-name">DYO</span>
+    </a>
+
+    <!-- Menu (no computador fica em linha; no celular abre pelo botão) -->
+    <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato" class="nav-cta">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botão do menu no celular -->
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Abrir menu"
+    >
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- =========================================================
+       INÍCIO (hero)
+       Estilo: css/sections/hero.css
+       ========================================================= -->
+  <section class="hero theme-dark" id="top" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal"><span class="rec-dot" aria-hidden="true"></span> Editor de vídeos &amp; YouTuber</p>
+        <h1 id="hero-title" class="hero-title reveal"><span class="accent">DYO</span></h1>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary btn-lg" href="#portfolio">
+            <span class="icon icon-play" aria-hidden="true"></span> Ver portfólio
+          </a>
+          <a class="btn btn-outline btn-lg" href="#contato">Entrar em contato</a>
+        </div>
+        <div class="hero-tools reveal" aria-labelledby="hero-tools-title">
+          <h2 id="hero-tools-title">Programas que domino</h2>
+          <ul class="hero-tools-list">
+            <li class="hero-tool">
+              <img src="img/icons/adobe-premiere-pro.svg" alt="Adobe Premiere Pro" width="40" height="40" />
+            </li>
+            <li class="hero-tool">
+              <img src="img/icons/adobe-after-effects.svg" alt="Adobe After Effects" width="40" height="40" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       QUEM SOU EU
+       Estilo: css/sections/about.css
+       Espaço reservado: Em breve
+       ========================================================= -->
+  <section class="section about theme-light" id="sobre" aria-labelledby="sobre-title">
+    <div class="container about-inner">
+      <div class="about-photo reveal">
+        <div class="about-placeholder">
+          <p>Em breve</p>
+        </div>
+      </div>
+
+      <div class="about-content">
+          <h2 id="sobre-title" class="section-title">SOBRE <span class="accent type-editorial">MIM</span></h2>
+        </header>
+         <div class="about-text reveal">
+        <header class="section-header">
+        <p>
+         Bom, essa é uma breve apresentação sobre mim, sem enrolação. 
+                    Bom, meu nome é Diego, mas prefiro usar DYO como apelido no ramo da edição. Gosto de manter uma boa relação com meus clientes e não me limito apenas a editar os vídeos. Também procuro ajudar com ideias e sugestões para melhorar o conteúdo que eles gravam.
+        </p>
+
+        <!-- Informações profissionais opcionais: preencha profileDetails no js/content.js.
+             O bloco fica oculto enquanto não houver conteúdo escrito por você. -->
+        <div id="profile-details" class="profile-details" hidden></div>
+
+        <!-- Cards com informações rápidas -->
+        <div class="about-meta" aria-label="Informações rápidas">
+          <div class="meta-item">
+            <span class="meta-label">Foco</span>
+            <span class="meta-value">Games • Shorts • Reels</span>
+          </div> 
+  </section>
+
+  <!-- =========================================================
+       PORTFÓLIO (os vídeos vêm do js/content.js)
+       Estilo: css/sections/portfolio.css
+       ========================================================= -->
+  <section class="section portfolio theme-dark" id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <header class="section-header reveal">
+        <p class="section-eyebrow">Portfólio</p>
+        <h2 id="portfolio-title" class="section-title">Meus <span class="accent">trabalhos</span></h2>
+        <p class="section-lead">
+          Explore meus trabalhos e navegue pelos projetos de cada formato.
+        </p>
+      </header>
+
+      <!-- Filtros de categoria (Vídeos / Shorts / Motion Design) -->
+      <div class="portfolio-filters reveal" id="portfolio-filters" role="tablist" aria-label="Filtrar trabalhos por categoria">
+        <button type="button" class="filter-btn is-active" role="tab" aria-selected="true" aria-controls="portfolio-featured" data-filter="video"><svg class="filter-icon filter-icon-play" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M4.5 3.25v9.5L12.5 8z" /></svg> Vídeos</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" aria-controls="portfolio-featured" data-filter="short"><svg class="filter-icon" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M6.1 5.1 8 3.2a2.5 2.5 0 0 1 3.5 3.5L9.8 8.4M9.9 10.9 8 12.8a2.5 2.5 0 0 1-3.5-3.5l1.7-1.7M6.2 9.8l3.6-3.6" /></svg> Shorts</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" aria-controls="portfolio-featured" data-filter="motion"><svg class="filter-icon" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M2.5 5.1h11v8h-11zM2.5 5.1l1.8-2.2h11l-1.8 2.2M5.1 2.9l1.7 2.2M9 2.9l1.7 2.2M5.2 7.1v4M9 7.1v4M12.4 7.1v4" /></svg> Motion Design</button>
+      </div>
+
+      <!-- O JavaScript preenche o carrossel com os projetos -->
+      <div class="portfolio-carousel reveal">
+        <button class="portfolio-carousel-btn" type="button" data-portfolio-carousel="prev" aria-label="Projeto anterior">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg>
+        </button>
+        <div class="portfolio-featured" id="portfolio-featured" role="group" aria-label="Projetos do portfólio" aria-roledescription="carrossel" aria-live="polite" tabindex="0"></div>
+        <button class="portfolio-carousel-btn" type="button" data-portfolio-carousel="next" aria-label="Próximo projeto">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
+        </button>
+      </div>
+      <p class="portfolio-empty" id="portfolio-empty" hidden>Em breve, novos trabalhos nessa categoria.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DEPOIMENTOS (carrossel — os textos vêm do js/content.js)
+       Estilo: css/sections/testimonials.css
+       ========================================================= -->
+  <section class="section testimonials theme-light" id="depoimentos" aria-labelledby="depoimentos-title">
+    <div class="container">
+      <header class="section-header reveal">
+        <h2 id="depoimentos-title" class="section-title"><span class="accent">Depoimentos</span></h2>
+        <p class="section-lead">
+          Alguns depoimentos de quem já trabalhou comigo.
+          Em breve mais novidades por aqui.
+        </p>
+      </header>
+
+      <div class="testimonials-viewport" id="testimonials-viewport">
+        <div class="testimonials-track" id="testimonials-track"></div>
+      </div>
+
+      <div class="testimonials-controls" id="testimonials-controls">
+        <button type="button" class="carousel-btn" data-carousel="prev" aria-label="Depoimento anterior">
+          <span class="icon icon-arrow-left" aria-hidden="true"></span>
+        </button>
+        <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Navegação de depoimentos"></div>
+        <button type="button" class="carousel-btn" data-carousel="next" aria-label="Próximo depoimento">
+          <span class="icon icon-arrow-right" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTATO (os links vêm do js/content.js)
+       Estilo: css/sections/contact.css
+       Imagem de fundo: img/backgrounds/contact.webp
+       ========================================================= -->
+  <section class="section contact theme-dark" id="contato" aria-labelledby="contato-title">
+    <div class="container contact-inner">
+      <div class="contact-text reveal">
+        <header class="section-header">
+          <h2 id="contato-title" class="section-title">Gostou do meu <span class="accent">trabalho?</span></h2>
+          <p class="section-lead">
+            Vamos conversar sobre o seu próximo projeto?
+            Me chama no canal que preferir.
+          </p>
+        </header>
+
+        <div class="contact-links" id="contact-links" aria-label="Canais de contato">
+          <a class="contact-link" href="#" data-contact="whatsapp" aria-label="Abrir conversa no WhatsApp">
+            <span class="contact-link-icon" aria-hidden="true"><span class="icon icon-whatsapp"></span></span>
+            <span class="contact-link-text">
+              <span class="contact-link-label">WhatsApp</span>
+              <span class="contact-link-value">(21) 98431-5865</span>
+            </span>
+          </a>
+          <a class="contact-link" href="#" data-contact="instagram" aria-label="Abrir Instagram">
+            <span class="contact-link-icon" aria-hidden="true"><span class="icon icon-instagram"></span></span>
+            <span class="contact-link-text">
+              <span class="contact-link-label">Instagram</span>
+              <span class="contact-link-value">@itsd.yoooo</span>
+            </span>
+          </a>
+          <!-- Discord não tem link de perfil por usuário: mostra só o nome pra pessoa adicionar -->
+          <div class="contact-link" aria-label="Discord: itsdyo">
+            <span class="contact-link-icon" aria-hidden="true"><span class="icon icon-discord"></span></span>
+            <span class="contact-link-text">
+              <span class="contact-link-label">Discord</span>
+              <span class="contact-link-value">itsdyo</span>
+            </span>
+          </div>
+          <a class="contact-link" href="#" data-contact="x" aria-label="Abrir X (Twitter)">
+            <span class="contact-link-icon" aria-hidden="true"><span class="icon icon-x"></span></span>
+            <span class="contact-link-text">
+              <span class="contact-link-label">X</span>
+              <span class="contact-link-value">@itsdyooooo</span>
+            </span>
+          </a>
+          <a class="contact-link" href="#" data-contact="tiktok" aria-label="Abrir TikTok">
+            <span class="contact-link-icon" aria-hidden="true"><span class="icon icon-tiktok"></span></span>
+            <span class="contact-link-text">
+              <span class="contact-link-label">TikTok</span>
+              <span class="contact-link-value">@itsdyo</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-cta reveal">
+        <p class="contact-cta-title">Bora tirar seu vídeo <span class="accent">do papel?</span></p>
+        <a class="btn btn-red btn-lg" href="#" data-contact="primary">
+          Entrar em contato <span class="icon icon-arrow-right" aria-hidden="true"></span>
+        </a>
+        <p class="contact-note">Costumo responder no mesmo dia. 😉</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     Estilo: css/layout.css
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img class="footer-brand-logo" src="img/brand/dyo-studio-logo.svg" alt="DYO — edição de vídeo" width="112" height="42" loading="lazy" />
+      <span class="footer-tagline">Edição • Pós-produção</span>
+    </div>
+
+    <nav class="footer-nav" aria-label="Navegação do rodapé">
+      <a href="#portfolio">Portfólio</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <p class="footer-copy">
+      <span>© <span id="footer-year">2026</span> DYO. Todos os direitos reservados.</span>
+      <span>Site por DYO Studio</span>
+    </p>
+  </div>
+</footer>
+
+<dialog class="video-dialog" id="video-dialog" aria-label="Reprodução de vídeo">
+  <div class="video-dialog-shell">
+    <button class="video-dialog-close" type="button" aria-label="Fechar vídeo">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+    </button>
+    <div class="video-dialog-player" id="video-dialog-player"></div>
+  </div>
+</dialog>
+
+<!-- Conteúdo editável primeiro, depois a lógica do site -->
+<script src="js/content.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
