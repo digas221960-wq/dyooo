@@ -44,7 +44,7 @@ window.SITE_CONTENT = {
     },
     {
       title: "3 melhores dribles do basquete",
-      youtubeId: "g8xepPKiihs",
+      youtubeId: "gAlBlcIFumM",
       category: "video curto",
       type: "short",
       format: "vertical",
